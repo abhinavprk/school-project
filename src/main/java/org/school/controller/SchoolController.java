@@ -1,8 +1,8 @@
 package org.school.controller;
 
 import org.school.dao.School;
+import org.school.dto.response.ApiResponse;
 import org.school.service.SchoolService;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,8 +20,7 @@ public class SchoolController {
     }
 
     @GetMapping(path = "/{schoolId}")
-    private ResponseEntity<School> getSchoolDetail(@PathVariable(value = "schoolId") Long schoolId){
-        School school = schoolService.findSchoolDetailById(schoolId);
-        return new ResponseEntity<>(school, HttpStatus.OK);
+    private ResponseEntity<ApiResponse<School>> getSchoolDetail(@PathVariable(value = "schoolId") Long schoolId){
+        return schoolService.findSchoolDetailById(schoolId);
     }
 }

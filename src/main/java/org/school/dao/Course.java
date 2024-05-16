@@ -1,5 +1,6 @@
 package org.school.dao;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -27,10 +28,12 @@ public class Course {
     private String description;
 
     @ManyToMany(mappedBy = "courseList")
+    @JsonIgnoreProperties("course")
     private Set<Instructor> instructorList;
 
     @ManyToOne
     @JoinColumn(name = "school_id", nullable = false, referencedColumnName = "id")
+    @JsonIgnoreProperties("course")
     private School school;
 
 }

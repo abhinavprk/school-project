@@ -1,5 +1,6 @@
 package org.school.dao;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -20,6 +21,8 @@ public class Dean {
     @Column(name = "name", nullable = false, columnDefinition = "VARCHAR(100)")
     private String name;
 
-    @OneToOne(mappedBy = "dean")
+    @OneToOne
+    @JoinColumn(name = "school_id", referencedColumnName = "id", nullable = false)
+    @JsonIgnoreProperties("dean")
     private School school;
 }
