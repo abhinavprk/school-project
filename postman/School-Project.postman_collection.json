@@ -1,0 +1,31 @@
+{
+	"info": {
+		"_postman_id": "72b2681c-3114-4dee-928f-87c667f28118",
+		"name": "School-Project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12117050"
+	},
+	"item": [
+		{
+			"name": "Get School By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/api/school/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"school",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
