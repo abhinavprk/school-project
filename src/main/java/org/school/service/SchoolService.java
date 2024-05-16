@@ -8,9 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.util.HashSet;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 
 @Service
 public class SchoolService {
@@ -27,9 +25,9 @@ public class SchoolService {
         if(schoolOptional.isPresent()){
             response = new ResponseEntity<>(new ApiResponse<>(schoolOptional.get(), null), HttpStatus.OK);
         }else {
-            Set<ApiError> errorSet = new HashSet<>();
-            errorSet.add(new ApiError("no.school.found","There is no school in the system with id: " + schoolId));
-            response = new ResponseEntity<>(new ApiResponse<>(null, errorSet), HttpStatus.OK);
+            List<ApiError> errorList = new ArrayList<>();
+            errorList.add(new ApiError("no.school.found","There is no school in the system with id: " + schoolId));
+            response = new ResponseEntity<>(new ApiResponse<>(null, errorList), HttpStatus.OK);
         }
         return response;
     }
